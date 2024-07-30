@@ -7,6 +7,6 @@ use IService\MessageServiceInterface;
 class SmsService implements MessageServiceInterface
 {
     public function send(string $recipient, string $message): void {
-        echo "Sending SMS to $recipient: $message\n";
+        echo "Отправка SMS на номер: $recipient: $message\n";
     }
 }

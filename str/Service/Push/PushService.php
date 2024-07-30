@@ -8,6 +8,6 @@ class PushService implements MessageServiceInterface
 {
     public function send(string $recipient, string $message): void
     {
-        echo "Sending Push Notification to $recipient: $message\n";
+        echo "Отправка Push-уведомления на $recipient: $message\n";
     }
 }
