@@ -11,11 +11,11 @@ class Notification
         $this->services[$type] = $service;
     }
 
-    public function send(string $type, string $user, string $message): void
+    public function send(string $type, string $to, string $message): void
     {
         if (!isset($this->services[$type])) {
             throw new Exception("Страница не найден.");
         }
-        $this->services[$type]->send($user, $message);
+        $this->services[$type]->send($to, $message);
     }
 }

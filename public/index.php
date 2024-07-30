@@ -17,11 +17,12 @@ $smsService = new SmsService();
 $pushService = new PushService();
 $notification= new Notification();
 
-
+//Передаем параметры в универсальный класс
 $notification->addService('email', $emailService);
 $notification->addService('sms', $smsService);
 $notification->addService('push', $pushService);
 
+//Вызываем метод для отправки уведомления и передаем параметры
 $notification->send('email', 'hello@work.com', 'Email');
 $notification->send('sms', '88004672345', 'SMS');
 $notification->send('push', 'api_id', 'Push');
