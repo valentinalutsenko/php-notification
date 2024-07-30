@@ -5,20 +5,23 @@ use Service\Push\PushService;
 use Service\Sms\SmsService;
 use str\Notification;
 
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/str/Service/Email/EmailService.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/str/Service/Sms/SmsService.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/str/Service/Push/PushService.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/str/Notification.php';
+
 // Создание экземпляров классаов
 $emailService = new EmailService();
 $smsService = new SmsService();
 $pushService = new PushService();
+$notification= new Notification();
 
-// Создание экземпляра универсального сервиса отправки сообщений
-$messageSender = new Notification();
 
-// Добавление сервисов в универсальный сервис
-$messageSender->addService('email', $emailService);
-$messageSender->addService('sms', $smsService);
-$messageSender->addService('push', $pushService);
+$notification->addService('email', $emailService);
+$notification->addService('sms', $smsService);
+$notification->addService('push', $pushService);
 
-// Отправка одного сообщения
-$messageSender->send('email', 'user@example.com', 'Hello via Email!');
-$messageSender->send('sms', '+123456789', 'Hello via SMS!');
-$messageSender->send('push', 'push_token_123', 'Hello via Push!');
+$notification->send('email', 'hello@work.com', 'Email');
+$notification->send('sms', '88004672345', 'SMS');
+$notification->send('push', 'api_id', 'Push');

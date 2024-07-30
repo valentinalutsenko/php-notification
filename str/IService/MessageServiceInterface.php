@@ -4,5 +4,5 @@ namespace IService;
 
 interface MessageServiceInterface
 {
-    public function send(string $recipient, string $message): void;
+    public function send(string $to, string $message): void;
 }
